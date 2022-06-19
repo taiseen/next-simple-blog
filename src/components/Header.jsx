@@ -4,6 +4,7 @@ import Link from "next/link";
 
 const Header = () => {
 
+    
     return (
         <header className='bg-gray-300 py-4 '>
             <div className="xl:container xl:mx-auto 

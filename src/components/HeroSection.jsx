@@ -1,6 +1,7 @@
-import SwiperCore, { Autoplay, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { images } from '../assets';
+import { Autoplay, Pagination } from "swiper";
+import PuffLoader from "react-spinners/PuffLoader";
+import fetcher from '../lib/fetcher';
 import Author from './_child/Author';
 import Image from 'next/image'
 import Link from 'next/link'
@@ -10,17 +11,15 @@ import 'swiper/css';
 
 const HeroSection = () => {
 
-    // dependency for enabling slider autoplay
-    SwiperCore.use([Autoplay]);
+    // use this Middleware for enabling slider autoplay 
+    // SwiperCore.use([Autoplay]);
 
-    const bg = {
-        background: "url('../assets/banner.png') no-repeat",
-        backgroundPosition: "right"
-    }
+    const { data, isLoading, isError } = fetcher('api/trending');
+
+
 
     return (
-        <section className="py-16 bg-[url('../assets/banner.png')] bg-no-repeat bg-right" >
-            {/* <section className='py-16' style={bg}> */}
+        <section className="py-16 md:bg-[url('/images/banner.png')] bg-no-repeat bg-right" >
 
             <div className="container mx-auto px-4 md:px-20">
 
@@ -29,14 +28,25 @@ const HeroSection = () => {
                 <Swiper
                     loop={true}
                     slidesPerView={1}
-                    modules={[Pagination]}
-                    autoplay={{ delay: 4000 }}
-                    pagination={{ dynamicBullets: true }}
+                    modules={[Pagination, Autoplay]}
+                    autoplay={{
+                        delay: 2000,
+                        disableOnInteraction: false,
+                    }}
+                    pagination={{
+                        clickable: true,
+                        dynamicBullets: true,
+                    }}
                 >
-                    <SwiperSlide>{Slider()}</SwiperSlide>
-                    <SwiperSlide>{Slider()}</SwiperSlide>
-                    <SwiperSlide>{Slider()}</SwiperSlide>
-                    <SwiperSlide>{Slider()}</SwiperSlide>
+                    {
+                        isLoading
+                            ? <PuffLoader color={'#9f1111'} size={80} />
+                            : data.map(post =>
+                                <SwiperSlide key={post.id}>
+                                    <Slider post={post} />
+                                </SwiperSlide>
+                            )
+                    }
                 </Swiper>
 
             </div>
@@ -47,40 +57,42 @@ const HeroSection = () => {
 export default HeroSection;
 
 
-const Slider = () => (
+const Slider = ({ post }) => (
+
 
     <div className='grid md:grid-cols-2 gap-4 pb-8'>
 
-        <div className='order-2 md:order-1'>
 
-            <Link href='/'>
-                <a>
-                    {/* <Image src={'/images/img1.jpg'} width={600} height={600} alt='info image'/> */}
-                    <Image src={images.img1} width={600} height={600} alt='info image' />
-                </a>
-            </Link>
-
+        {/* order-2 md:order-1 */}
+        <div>
+            <Link href='/'><a>
+                <Image src={post?.img} width={600} height={600} alt='info image' className='object-cover' />
+            </a></Link>
         </div>
 
-        <div className='order-1 md:order-2 flex flex-col justify-center'>
+
+        {/* order-1 md:order-2 */}
+        <div className=' flex flex-col justify-center'>
             <div className="pt-4 ">
                 <div className="pb-4">
-                    <Link href={"/"}><a className="text-orange-600 hover:text-orange-800">Business, Travel</a></Link>
-                    <Link href={"/"}><a className="text-gray-600 hover:text-gray-800"> - July 3, 2022</a></Link>
+                    <Link href={"/"}><a className="text-orange-600 hover:text-orange-800">
+                        {post?.category}
+                    </a></Link>
+                    <Link href={"/"}><a className="text-gray-600 hover:text-gray-800">
+                        &nbsp; - {post.published}
+                    </a></Link>
                 </div>
 
                 <Link href={"/"}>
                     <a className="text-2xl md:text-4xl lg:text-6xl font-bold text-gray-800 hover:text-gray-600 duration-200">
-                        Your most unhappy customers are your greatest source of learning
+                        {post?.title}
                     </a>
                 </Link>
             </div>
 
-            <p className="text-gray-500 py-3">
-                Even the all-powerful Pointing has no control about the blind texts it is an almost un-orthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
-            </p>
+            <p className="text-gray-500 py-3">{post.subtitle}</p>
 
-            <Author />
+            <Author author={post.author} />
 
         </div>
 
