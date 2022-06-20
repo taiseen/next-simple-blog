@@ -8,7 +8,9 @@ const CategoryPost = () => {
 
   const { data, isLoading, isError } = fetcher('api/trending');
 
-  if(isError) return <div>Error : at Category Section...</div>
+  if (isError) return <div>Error : at Category Section... {isError}</div>
+  console.log('Category error: ', isError);
+  console.log('Category data : ', data);
 
   return (
     <section className='container mx-auto py-16 px-4 md:px-20'>

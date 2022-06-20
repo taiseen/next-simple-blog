@@ -9,7 +9,9 @@ const LatestPost = () => {
 
   const { data, isLoading, isError } = fetcher('api/post');
 
-  if(isError) return <div>Error : at LatestPost Section...</div>
+  if (isError) return <div>Error : at LatestPost Section... {isError}</div>
+  console.log('LatestPost error: ', isError);
+  console.log('LatestPost data : ', data);
 
   return (
     <section className="container mx-auto px-4 md:px-20 py-10">

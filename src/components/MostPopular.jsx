@@ -14,7 +14,9 @@ const MostPopular = () => {
 
     const { data, isLoading, isError } = fetcher('api/popular');
 
-    if(isError) return <div>Error : at MostPopular Section...</div>
+    if (isError) return <div>Error : at MostPopular Section... {isError}</div>
+    console.log('Most Popular error: ', isError);
+    console.log('Most Popular data : ', data);
 
     return (
         <section className='container mx-auto py-10 px-4 md:px-20'>
