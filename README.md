@@ -1,7 +1,7 @@
 > 16 - Jun - 2022
 
 ## Simple Blog | [Live Link][link]
-[link]: www
+[link]: https://next-simple-blog-teal.vercel.app
 
 
 # NextJs + TailwindCss
