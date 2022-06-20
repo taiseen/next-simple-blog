@@ -5,3 +5,6 @@ export { default as LatestPost } from './LatestPost';
 export { default as Header } from './Header';
 export { default as Footer } from './Footer';
 export { default as Layout } from './Layout'; 
+export { default as Author } from './_child/Author'; 
+export { default as Related } from './_child/Related'; 
+export { default as NewsLetter } from './_child/NewsLetter'; 

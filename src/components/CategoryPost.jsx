@@ -8,6 +8,8 @@ const CategoryPost = () => {
 
   const { data, isLoading, isError } = fetcher('api/trending');
 
+  if(isError) return <div>Error : at Category Section...</div>
+
   return (
     <section className='container mx-auto py-16 px-4 md:px-20'>
       <div className="grid lg:grid-cols-2 gap-4">
@@ -18,7 +20,7 @@ const CategoryPost = () => {
             {
               isLoading
                 ? <h1>Loading...</h1>
-                : data.slice(0, 3).map(post => <Post key={post.id} post={post} />)
+                : data?.slice(0, 3)?.map(post => <Post key={post.id} post={post} />)
             }
           </div>
         </div>
@@ -29,7 +31,7 @@ const CategoryPost = () => {
             {
               isLoading
                 ? <h1>Loading...</h1>
-                : data.slice(2, 6).map(post => <Post key={post.id} post={post} />)
+                : data?.slice(2, 6)?.map(post => <Post key={post.id} post={post} />)
             }
           </div>
         </div>

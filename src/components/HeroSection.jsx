@@ -16,7 +16,7 @@ const HeroSection = () => {
 
     const { data, isLoading, isError } = fetcher('api/trending');
 
-
+    if(isError) return <div>Error : at Hero Section...</div>
 
     return (
         <section className="py-16 md:bg-[url('/images/banner.png')] bg-no-repeat bg-right" >
