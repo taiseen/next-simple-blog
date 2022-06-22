@@ -12,18 +12,37 @@
     @apply block w-60 px-3 py-2 mt-1 border border-slate-300 placeholder-slate-500 rounded-full text-sm shadow-sm outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-400 duration-200
 }
 
-.swiper-pagination-bullet{ 
-    background-color: red;  
-}  
+.swiper-pagination-bullet {
+    background-color: red;
+}
 
 .swiper-button-prev,
-.swiper-button-next{
+.swiper-button-next {
     transition: .3s linear;
-    color: rgba(255, 0, 0, .2);
-    /* top: 370px ; */
+    color     : rgba(255, 0, 0, .2);
+    /* top    : 370px ; */
 }
 
 .swiper-button-prev:hover,
-.swiper-button-next:hover{
+.swiper-button-next:hover {
     color: rgba(255, 0, 0, 0.5);
+}
+
+
+
+/* Custom Spinner  */
+.loader {
+    @apply border-gray-200 rounded-full border-4 ease-linear h-12 w-12;
+    border-top-color: #e42626;
+    animation       : spinner 1.2s linear infinite;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

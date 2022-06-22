@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from "swiper";
-import PuffLoader from "react-spinners/PuffLoader";
+import { Spinner, Error } from '.';
 import fetcher from '../lib/fetcher';
 import Author from './_child/Author';
 import Image from 'next/image'
@@ -9,6 +9,7 @@ import 'swiper/css/pagination';
 import 'swiper/css';
 
 
+// section 1
 const HeroSection = () => {
 
     // use this Middleware for enabling slider autoplay 
@@ -16,9 +17,8 @@ const HeroSection = () => {
 
     const { data, isLoading, isError } = fetcher('api/trending');
 
-    if (isError) return <div>Error : at Hero Section... {isError}</div>
-    console.log('Hero error: ', isError);
-    console.log('Hero data : ', data);
+    if (isLoading) return <Spinner />
+    if (isError) return <Error />
 
     return (
         <section className="py-16 md:bg-[url('/images/banner.png')] bg-no-repeat bg-right" >
@@ -41,13 +41,11 @@ const HeroSection = () => {
                     }}
                 >
                     {
-                        isLoading
-                            ? <PuffLoader color={'#9f1111'} size={80} />
-                            : data.map(post =>
-                                <SwiperSlide key={post.id}>
-                                    <Slider post={post} />
-                                </SwiperSlide>
-                            )
+                        data.map(post =>
+                            <SwiperSlide key={post.id}>
+                                <Slider post={post} />
+                            </SwiperSlide>
+                        )
                     }
                 </Swiper>
 
@@ -59,8 +57,8 @@ const HeroSection = () => {
 export default HeroSection;
 
 
-const Slider = ({ post }) => (
 
+const Slider = ({ post }) => (
 
     <div className='grid md:grid-cols-2 gap-4 pb-8'>
 

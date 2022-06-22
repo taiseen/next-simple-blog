@@ -1,3 +1,8 @@
+export { default as NewsLetter } from './_child/NewsLetter'; 
+export { default as Spinner } from './_child/Spinner'; 
+export { default as Related } from './_child/Related'; 
+export { default as Author } from './_child/Author'; 
+export { default as Error } from './_child/Error'; 
 export { default as CategoryPost } from './CategoryPost'; 
 export { default as HeroSection } from './HeroSection';
 export { default as MostPopular } from './MostPopular'; 
@@ -5,6 +10,3 @@ export { default as LatestPost } from './LatestPost';
 export { default as Header } from './Header';
 export { default as Footer } from './Footer';
 export { default as Layout } from './Layout'; 
-export { default as Author } from './_child/Author'; 
-export { default as Related } from './_child/Related'; 
-export { default as NewsLetter } from './_child/NewsLetter'; 

@@ -1,16 +1,16 @@
+import { Author, Error } from '.';
+import PuffLoader from "react-spinners/PuffLoader";
 import fetcher from '../lib/fetcher';
-import Author from './_child/Author';
 import Image from 'next/image';
 import Link from 'next/link';
 
 
+// section 4
 const CategoryPost = () => {
 
   const { data, isLoading, isError } = fetcher('api/trending');
-
-  if (isError) return <div>Error : at Category Section... {isError}</div>
-  console.log('Category error: ', isError);
-  console.log('Category data : ', data);
+  
+  if (isError) return <Error />
 
   return (
     <section className='container mx-auto py-16 px-4 md:px-20'>
@@ -21,7 +21,7 @@ const CategoryPost = () => {
           <div className="flex flex-col gap-6">
             {
               isLoading
-                ? <h1>Loading...</h1>
+                ? <PuffLoader color={'#9f1111'} size={80} />
                 : data?.slice(0, 3)?.map(post => <Post key={post.id} post={post} />)
             }
           </div>
@@ -32,9 +32,16 @@ const CategoryPost = () => {
           <div className="flex flex-col gap-6">
             {
               isLoading
-                ? <h1>Loading...</h1>
-                : data?.slice(2, 6)?.map(post => <Post key={post.id} post={post} />)
+                ? <PuffLoader color={'#9f1111'} size={80} />
+                : data?.slice(2, 5)?.map(post => <Post key={post.id} post={post} />)
             }
+
+            {/* 
+                {data[3] ? <Post post={data[3]} /> : <></>}
+                {data[4] ? <Post post={data[4]} /> : <></>}
+                {data[2] ? <Post post={data[2]} /> : <></>} 
+            */}
+
           </div>
         </div>
 

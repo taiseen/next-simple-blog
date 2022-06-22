@@ -1,22 +1,21 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Author, Spinner, Error } from '.';
 import { Navigation } from "swiper";
-import PuffLoader from "react-spinners/PuffLoader";
 import fetcher from "../lib/fetcher";
-import Author from './_child/Author';
 import Image from 'next/image';
 import Link from 'next/link';
 import 'swiper/css/navigation';
 import 'swiper/css';
 
 
-
+// section 3
 const MostPopular = () => {
 
     const { data, isLoading, isError } = fetcher('api/popular');
 
-    if (isError) return <div>Error : at MostPopular Section... {isError}</div>
+    if (isLoading) return <Spinner />
+    if (isError) return <Error />
     console.log('Most Popular error: ', isError);
-    console.log('Most Popular data : ', data);
 
     return (
         <section className='container mx-auto py-10 px-4 md:px-20'>
@@ -38,13 +37,11 @@ const MostPopular = () => {
                 }}
             >
                 {
-                    isLoading
-                        ? <PuffLoader color={'#9f1111'} size={80} />
-                        : data.map(post =>
-                            <SwiperSlide key={post.id}>
-                                <Post post={post} />
-                            </SwiperSlide>
-                        )
+                    data.map(post =>
+                        <SwiperSlide key={post.id}>
+                            <Post post={post} />
+                        </SwiperSlide>
+                    )
                 }
             </Swiper>
 

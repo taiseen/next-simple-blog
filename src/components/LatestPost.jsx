@@ -1,17 +1,16 @@
-import PuffLoader from "react-spinners/PuffLoader";
+import { Author, Spinner, Error } from '.';
 import fetcher from '../lib/fetcher';
-import Author from './_child/Author';
 import Image from 'next/image';
 import Link from 'next/link';
 
 
+// section 2
 const LatestPost = () => {
 
   const { data, isLoading, isError } = fetcher('api/post');
 
-  if (isError) return <div>Error : at LatestPost Section... {isError}</div>
-  console.log('LatestPost error: ', isError);
-  console.log('LatestPost data : ', data);
+  if (isLoading) return <Spinner />
+  if (isError) return <Error />
 
   return (
     <section className="container mx-auto px-4 md:px-20 py-10">
@@ -20,9 +19,7 @@ const LatestPost = () => {
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-14 px-4">
         {
-          isLoading
-            ? <PuffLoader color={'#9f1111'} size={120} />
-            : data.map(post => <Post key={post.id} post={post} />)
+          data.map(post => <Post key={post.id} post={post} />)
         }
       </div>
     </section>

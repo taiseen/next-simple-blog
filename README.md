@@ -55,12 +55,15 @@
 | 8| `swiper slider` > responsive breakpoints           | 
 | 9| `swiper slider` > bullet pointer `color change`    | 
 |10| `swiper slider` > navigation handle `color change` | 
-|11| Fav icon set > `Layout > Head > link` | `public/fav.ico`  |
+|11| Fav icon set > `Layout > Head > link` <> `public/fav.ico`  |
 |12| set `padding bottom` at swiper slider container for `bullet pointer` go little down | 
 |13| Functional style, JXS written (modular system) & call that for displaying at UI     |
 |14| `BackEnd` > Folder Structure + File naming convention meaning                       |
 |15| `BackEnd` > Folder name become `URL endpoint` &...                                  | 
 |16| `BackEnd` > then inside this Folder must have `index.js` file for `default response` from this `URL endpoint` |
+|17| Tailwind CSS + Custom CSS writing together         |
+|18| Custom Spinner Component + Loader animation create | 
+|19| Custom Error Component                             | 
 
 
 > ## now i can create my own API EndPoint for accessing BackEnd Data...
