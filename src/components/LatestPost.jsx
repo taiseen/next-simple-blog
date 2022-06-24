@@ -45,7 +45,7 @@ const Post = ({ post }) => (
         <Link href={"/"}><a className="text-gray-600 hover:text-gray-800"> - {post.published}</a></Link>
       </div>
 
-      <Link href={"/"}>
+      <Link href={`/post/${post.id}`}>
         <a className="text-2xl font-bold text-gray-800 hover:text-gray-600 duration-200">
           {post.title}
         </a>

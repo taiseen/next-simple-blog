@@ -9,7 +9,7 @@ import Link from 'next/link';
 const CategoryPost = () => {
 
   const { data, isLoading, isError } = fetcher('api/trending');
-  
+
   if (isError) return <Error />
 
   return (
@@ -67,7 +67,7 @@ const Post = ({ post }) => (
         <Link href={"/"}><a className="text-gray-600 hover:text-gray-800"> - {post.published}</a></Link>
       </div>
 
-      <Link href={"/"}>
+      <Link href={`/post/${post.id}`}>
         <a className="text-xl font-bold text-gray-800 hover:text-gray-600 duration-200">
           {post?.title}
         </a>
