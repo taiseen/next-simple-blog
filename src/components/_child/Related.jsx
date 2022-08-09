@@ -15,10 +15,6 @@ const Related = () => {
                 {Post()}
                 {Post()}
                 {Post()}
-                {Post()}
-                {Post()}
-                {Post()}
-                {Post()}
             </div>
         </section>
     )

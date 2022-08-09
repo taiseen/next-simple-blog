@@ -17,6 +17,7 @@ const MostPopular = () => {
     if (isError) return <Error />
     console.log('Most Popular error: ', isError);
 
+    
     return (
         <section className='container mx-auto py-10 px-4 md:px-20'>
 
@@ -64,12 +65,12 @@ const Post = ({ post }) => (
         <div className="flex justify-center flex-col py-4 px-6">
 
             <div className="pb-4">
-                <Link href={"/"}><a className="text-orange-600 hover:text-orange-800">{post?.category} </a></Link>
-                <Link href={"/"}><a className="text-gray-600 hover:text-gray-800"> - {post.published}</a></Link>
+                <Link href={`/popular/${post.id}`}><a className="text-orange-600 hover:text-orange-800">{post?.category} </a></Link>
+                <Link href={`/popular/${post.id}`}><a className="text-gray-600 hover:text-gray-800"> - {post.published}</a></Link>
             </div>
 
 
-            <Link href={"/"}>
+            <Link href={`/popular/${post.id}`}>
                 <a className="text-xl md:text-3xl font-bold text-gray-800 hover:text-gray-600 duration-200">
                     {post?.title}
                 </a>

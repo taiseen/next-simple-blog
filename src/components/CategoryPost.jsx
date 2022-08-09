@@ -63,11 +63,11 @@ const Post = ({ post }) => (
 
     <div className="flex flex-col justify-center">
       <div>
-        <Link href={"/"}><a className="text-orange-600 hover:text-orange-800">{post?.category}</a></Link>
-        <Link href={"/"}><a className="text-gray-600 hover:text-gray-800"> - {post.published}</a></Link>
+        <Link href={`/trending/${post.id}`}><a className="text-orange-600 hover:text-orange-800">{post?.category}</a></Link>
+        <Link href={`/trending/${post.id}`}><a className="text-gray-600 hover:text-gray-800"> - {post.published}</a></Link>
       </div>
 
-      <Link href={`/post/${post.id}`}>
+      <Link href={`/trending/${post.id}`}>
         <a className="text-xl font-bold text-gray-800 hover:text-gray-600 duration-200">
           {post?.title}
         </a>

@@ -1,5 +1,8 @@
 
-const baseURL = 'http://localhost:3000'
+// const baseURL = 'http://localhost:3000'
+
+const baseURL = 'https://next-simple-blog-bd.vercel.app'
+
 
 export const getPost = async (id) => {
 

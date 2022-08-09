@@ -75,15 +75,15 @@ const Slider = ({ post }) => (
         <div className=' flex flex-col justify-center'>
             <div className="pt-4 ">
                 <div className="pb-4">
-                    <Link href={"/"}><a className="text-orange-600 hover:text-orange-800">
+                    <Link href={`/trending/${post.id}`}><a className="text-orange-600 hover:text-orange-800">
                         {post?.category}
                     </a></Link>
-                    <Link href={"/"}><a className="text-gray-600 hover:text-gray-800">
+                    <Link href={`/trending/${post.id}`}><a className="text-gray-600 hover:text-gray-800">
                         &nbsp; - {post.published}
                     </a></Link>
                 </div>
 
-                <Link href={"/"}>
+                <Link href={`/trending/${post.id}`}>
                     <a className="text-2xl md:text-4xl lg:text-6xl font-bold text-gray-800 hover:text-gray-600 duration-200">
                         {post?.title}
                     </a>

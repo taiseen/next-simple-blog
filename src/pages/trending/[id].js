@@ -10,7 +10,7 @@ const Post = () => {
     const router = useRouter();
     const { id } = router.query;
 
-    const { data, isLoading, isError } = fetcher(`api/post/${id}`);
+    const { data, isLoading, isError } = fetcher(`api/trending/${id}`);
 
     if (isLoading) return <Spinner />
     if (isError) return <Error />
