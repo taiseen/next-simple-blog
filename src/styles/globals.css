@@ -13,19 +13,19 @@
 }
 
 .swiper-pagination-bullet {
-    background-color: red;
+    background-color: red !important;
 }
 
 .swiper-button-prev,
 .swiper-button-next {
     transition: .3s linear;
-    color     : rgba(255, 0, 0, .2);
+    color     : rgba(255, 0, 0, .2) !important;
     /* top    : 370px ; */
 }
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-    color: rgba(255, 0, 0, 0.5);
+    color: rgba(255, 0, 0, 0.5) !important;
 }
 
 

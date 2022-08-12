@@ -21,24 +21,70 @@
 
 ## Project Structure
     🟨
-    ├── public                      # public file, like - fav.ico keep here...
-    ├── src
-    |     ├── assets                # static/image files...
-    |     ├── components            # all needful components
-    |     |      ├── ... ... ...   
-    |     |
-    |     ├── pages                  
-    |     |      ├── api            # server / backend - api endPoints
-    |     |      ├── _app.js        # starting root
-    |     |      └── index.js       # component stacking... 
-    |     |
-    |     └── style                 # css styling...
+    src
+    ├── components
+    |   ├── _child
+    |   |   ├── Author.jsx
+    |   |   ├── Error.jsx
+    |   |   ├── NewsLetter.jsx
+    |   |   ├── Related.jsx
+    |   |   └── Spinner.jsx
+    |   |
+    |   ├── CategoryPost.jsx
+    |   ├── Footer.jsx
+    |   ├── Header.jsx
+    |   ├── HeroSection.jsx
+    |   ├── index.js
+    |   ├── LatestPost.jsx
+    |   ├── Layout.jsx          |🟡| <Header /> ➕ { children } ➕ <Footer /> |🟡|
+    |   └── MostPopular.jsx
     |
-    ├── README.md
-    ... ... ...
+    |
+    ├── lib                     |🟠| Fetcher |🟠|
+    |   ├── fetcher.js          |🟠| Fetcher |🟠|
+    |   └── helper.js           |🟠| Fetcher |🟠|
+    |
+    |
+    ├── pages
+    |   |
+    |   ├── api                 |🟨| BackEnd |🟨|
+    |   |   |                   |🟨| BackEnd |🟨|
+    |   |   ├── db              |🟨| BackEnd |🟨|
+    |   |   |   └── data.js     |🟨| BackEnd |🟨|
+    |   |   |                   |🟨| BackEnd |🟨|
+    |   |   ├── popular         |🟨| BackEnd |🟨|
+    |   |   |   ├── index.js    |🟨| BackEnd |🟨| 
+    |   |   |   └── [id].js     |🟨| BackEnd |🟨|
+    |   |   |                   |🟨| BackEnd |🟨|
+    |   |   ├── post            |🟨| BackEnd |🟨|
+    |   |   |   ├── index.js    |🟨| BackEnd |🟨|
+    |   |   |   └── [id].js     |🟨| BackEnd |🟨|
+    |   |   |                   |🟨| BackEnd |🟨|
+    |   |   ├── trending        |🟨| BackEnd |🟨|
+    |   |   |   ├── index.js    |🟨| BackEnd |🟨|
+    |   |   |   └── [id].js     |🟨| BackEnd |🟨|
+    |   |   |                   |🟨| BackEnd |🟨|
+    |   |   └── index.js        |🟨| BackEnd |🟨|
+    |   |                       
+    |   |
+    |   |
+    |   ├── popular
+    |   |   └── [id].js
+    |   |
+    |   ├── post
+    |   |   └── [id].js
+    |   |
+    |   ├── trending
+    |   |   └── [id].js
+    |   |
+    |   ├── _app.js             |✅| <Layout /> |✅|
+    |   └── index.js
+    |
+    |
+    |
+    └── styles
+        └── globals.css
     🟨
-
-
 <br/>
 
 
@@ -46,7 +92,7 @@
 |No| Context learn by building this project...          | 
 |--|----------------------------------------------------|
 | 1| Layout Component architecture                      | 
-| 2| Responsive thinking... `w-fit | sm:w-96`           | 
+| 2| Responsive thinking... `w-fit - sm:w-96`           | 
 | 3| `flex-wrap-reverse` equivalent into `grid - order` | 
 | 4| `swiper slider` > usage, importing jsx + css files | 
 | 5| `swiper slider` > navigation                       | 
@@ -61,10 +107,10 @@
 |14| `BackEnd` > Folder Structure + File naming convention meaning                       |
 |15| `BackEnd` > Folder name become `URL endpoint` &...                                  | 
 |16| `BackEnd` > then inside this Folder must have `index.js` file for `default response` from this `URL endpoint` |
-|17| Tailwind CSS + Custom CSS writing together         |
+|17| Tailwind CSS + `Custom CSS` writing together       |
 |18| Custom Spinner Component + Loader animation create | 
 |19| Custom Error Component                             | 
 
 
-> ## now i can create my own API EndPoint for accessing BackEnd Data...
-> ## & fetch those Data from FrontEnd... for displaying into UI...
+> * now i can create my own API EndPoint for accessing BackEnd Data...
+> * & fetch those Data from FrontEnd... for displaying into UI...

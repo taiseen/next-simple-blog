@@ -2,7 +2,7 @@ import { Header, Footer } from '.'
 import Head from 'next/head'
 
 
-// this component call from ../pages/_app.js file...
+// this component call from 🟨🟨🟨 ../pages/_app.js 🟨🟨🟨 file...
 const Layout = ({ children }) => {
 
     return (
